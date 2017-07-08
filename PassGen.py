@@ -13,7 +13,7 @@ def userInput() :
     try : 
         userLength = int(input('How many characters would you like in your password? '))
     except : 
-            print('Sorry there was an error')
+            print('\nSorry there was an error')
             userErrorChoice()
     
     return(userLength)
@@ -24,13 +24,14 @@ def userErrorChoice() :
     
     userChoice = input('Type (A) to try again or (X) to quit:' ).upper()
 
-    question = True
+    if userChoice == 'A' :
+        generateRandom()
 
-    while question == True :
-        if userChoice == 'A' :
-            generateRandom()
-        elif userChoice == 'X' :
-            sys.exit()
+    elif userChoice == 'X' :
+        sys.exit()
+
+    else :
+        userErrorChoice() #repeats question until user answers A or X
 
 
 def generateRandom() : 
