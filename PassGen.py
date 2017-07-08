@@ -57,10 +57,6 @@ def outputPassword(passwordString) :
     print('\nThank you for using PassGen')
     print('This is your password: {0}\n'.format(passwordString))
 
-    # Trying to implement a new line to the string after every 10 characters
-
-    splitOutput(passwordString)
-    
 
 def main() : 
     
