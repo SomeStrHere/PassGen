@@ -12,8 +12,17 @@ def userInput() :
 
     try : 
         userLength = int(input('How many characters would you like in your password? '))
-    except : 
-            print('\nSorry there was an error')
+
+    except :
+        print('\nSorry there was an error')
+        print('Please try again...')
+
+        try : 
+            userLength = int(input('\nHow many characters would you like in your password? '))
+        except : 
+
+            print('Sorry, there was an error')
+            input('Press any key to exit')
             sys.exit()
                        
     return(userLength)
@@ -32,9 +41,12 @@ def generateRandom() :
     length = userInput()
     pwd = []
     charset = choice(charSets)
-    while len(pwd) < length:
+
+    while len(pwd) < length :
+
         pwd.append(choice(charset))
         charset = choice(list(set(charSets) - set([charset])))
+
     return outputPassword("".join(pwd))
 
 
@@ -51,4 +63,4 @@ def main() :
 
 if __name__ == "__main__" :
     main()
-
+    
