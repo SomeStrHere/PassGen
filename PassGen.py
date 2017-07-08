@@ -1,5 +1,5 @@
 # Program to generate a password and output it to the console.
-# V: 0.9.0
+# V: 1.0.0
 
 import random
 from os import urandom
