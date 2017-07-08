@@ -3,6 +3,7 @@
 
 from os import urandom
 from random import choice
+import math
 import sys
 
 def userInput() :
@@ -48,27 +49,6 @@ def generateRandom() :
         charset = choice(list(set(charSets) - set([charset])))
 
     return outputPassword("".join(pwd))
-
-
-def splitOutput(passwordString) :
-    """Split output into seperate lines of 10 characters."""
-
-    # We assume here that x is an int and > 0
-
-    #x = 10
-    #size = len(passwordString)
-    #chunkSize = size//x # // truncates a float to avoid file type error
-
-    #for pos in range(0, size, chunkSize):
-    #    yield passwordString[pos:pos+chunkSize]
-    upper = 10
-    lower = 0
-
-    for steps in range(len(passwordString)) :
-        string = passwordString[lower:upper]
-        print(string)
-        upper = upper + upper
-        lower = lower + 10
         
 
 def outputPassword(passwordString) :
