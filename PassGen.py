@@ -1,7 +1,6 @@
 # Program to generate a password and output it to the console.
 # V: 1.0.0
 
-import random
 from os import urandom
 from random import choice
 import sys
@@ -9,13 +8,30 @@ import sys
 def userInput() :
     """Asks user what length of password to create."""
 
+    userLength=1
+
     try : 
         userLength = int(input('How many characters would you like in your password? '))
     except : 
             print('Sorry there was an error')
-            # TODO
+            userErrorChoice()
     
     return(userLength)
+
+
+def userErrorChoice() :
+    """Asks user if they want to try again or exit."""
+    
+    userChoice = input('Type (A) to try again or (X) to quit:' ).upper()
+
+    question = True
+
+    while question == True :
+        if userChoice == 'A' :
+            generateRandom()
+        elif userChoice == 'X' :
+            sys.exit()
+
 
 def generateRandom() : 
     """Generate random characters to form a password."""
