@@ -1,7 +1,7 @@
 # PassGen
 A console based password generator.
 
-Version: 0.9.0
+Version: 1.0.0
 
 ## License
 
