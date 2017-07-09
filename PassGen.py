@@ -11,22 +11,33 @@ def userInput() :
 
     userLength=0
 
-    try : 
-        userLength = int(input('How many characters would you like in your password? '))
+    user_input = input('How many characters would you like in your password? ')
 
-    except :
-        print('\nSorry there was an error')
-        print('Please try again...')
+    accepted, user_input = checkInput(user_input)
 
-        try : 
-            userLength = int(input('\nHow many characters would you like in your password? '))
-        except : 
+    if not accepted :
+        print('Sorry, there was an error')
+        input('Press the enter key to exit')
+        sys.exit()
 
-            print('Sorry, there was an error')
-            input('Press any key to exit')
-            sys.exit()
-                       
-    return(userLength)
+    return user_input
+
+def checkInput(usr_input, recursive=True) :
+    local_user_input = usr_input
+    accepted = False
+    try:
+        int(local_user_input)
+        accepted = True
+    except ValueError as e:
+        if recursive :
+            local_user_input = input("Incorrect input. Please enter a number: ")
+            accepted, local_user_input = checkInput(local_user_input, False)
+
+    if accepted :
+        local_user_input = int(local_user_input)
+
+    return accepted, local_user_input
+
 
 
 def generateRandom() : 
